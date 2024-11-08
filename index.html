@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Employee Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Employee Management System</h1>
+    
+    <!-- Search, Filter, and Export Section -->
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search by name...">
+      <select id="filterDepartment">
+        <option value="">Filter by Department</option>
+        <option value="HR">HR</option>
+        <option value="IT">IT</option>
+        <option value="Finance">Finance</option>
+      </select>
+      <button class="btn export" onclick="exportCSV()">Export CSV</button>
+      <button class="btn add" onclick="openForm()">+ Add New Employee</button>
+    </div>
+
+    <!-- Employee Table -->
+    <div class="table-container">
+      <table id="employeeTable">
+        <thead>
+          <tr>
+            <th onclick="sortTable('name')">Photo</th>
+            <th onclick="sortTable('name')">Name</th>
+            <th onclick="sortTable('position')">Position</th>
+            <th onclick="sortTable('department')">Department</th>
+            <th onclick="sortTable('date')">Date of Hire</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="employeeList"></tbody>
+      </table>
+    </div>
+
+    <!-- Modal Form for Add/Edit Employee -->
+    <div id="employeeFormModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeForm()">&times;</span>
+        <h2 id="formTitle">Add Employee</h2>
+        <form id="employeeForm">
+          <input type="file" id="photo" accept="image/*">
+          <input type="text" id="name" placeholder="Full Name" required>
+          <input type="text" id="position" placeholder="Position" required>
+          <input type="text" id="department" placeholder="Department" required>
+          <input type="date" id="hireDate" placeholder="Date of Hire" required>
+          <input type="text" id="contact" placeholder="Contact Info" required>
+          <textarea id="address" placeholder="Address"></textarea>
+          <button class="btn save" type="button" onclick="saveEmployee()">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
